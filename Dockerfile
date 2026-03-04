@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY pa.json ./
 
-RUN npm install
-
 COPY . .
 
 EXPOSE 3000
