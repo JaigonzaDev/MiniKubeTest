@@ -8,7 +8,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  # github.repository toma automáticamente "TuUsuario/hola-front"
   IMAGE_NAME: jaigonzadev/minikubetest
 
 jobs:
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write # Permiso necesario para subir la imagen a GHCR
+      packages: write
 
     steps:
       - name: Checkout del código
@@ -27,7 +26,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }} # Este token lo provee GitHub automáticamente
+          password: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Construir y subir imagen Docker
         uses: docker/build-push-action@v5
