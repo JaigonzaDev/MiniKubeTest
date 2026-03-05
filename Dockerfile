@@ -2,7 +2,7 @@ FROM node
 
 WORKDIR /app
 
-COPY pa.json ./
+COPY package.json ./
 
 COPY . .
 
